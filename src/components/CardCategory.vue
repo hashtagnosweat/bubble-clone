@@ -41,10 +41,7 @@ const props = defineProps({
           <div class="grid-container">
             <div v-for="product in products" class="grid-item">
               <div class="image-wrapper">
-                <img
-                  :src="`src/assets/${product.img}`"
-                  class="thumbnail-image"
-                />
+                <img :src="`/assets/${product.img}`" class="thumbnail-image" />
               </div>
               <p class="thumbnail-name">{{ product.name }}</p>
             </div>

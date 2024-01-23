@@ -27,7 +27,7 @@ const hidePopupSearch = () => {
     <nav class="navbar navbar-expand-lg p-0">
       <div class="main-header">
         <a class="navbar-brand" href="#">
-          <img src="../assets/bubble-store.svg" alt="Icon" width="146" />
+          <img src="/assets/bubble-store.svg" alt="Icon" width="146" />
         </a>
 
         <ul class="d-none d-sm-block navbar-nav mr-auto">
@@ -56,7 +56,7 @@ const hidePopupSearch = () => {
           <li class="d-block d-sm-none nav-item">
             <a class="nav-link" href="#">
               <img
-                src="../assets/navbar-search.svg"
+                src="/assets/navbar-search.svg"
                 alt="Icon Search"
                 width="26"
                 height="26"
@@ -66,7 +66,7 @@ const hidePopupSearch = () => {
           <li class="nav-item">
             <a class="nav-link" href="#">
               <img
-                src="../assets/navbar-cart.svg"
+                src="/assets/navbar-cart.svg"
                 alt="Icon Cart"
                 width="26"
                 height="26"
@@ -76,7 +76,7 @@ const hidePopupSearch = () => {
           <li class="d-none d-sm-block nav-item">
             <a class="nav-link" href="#">
               <img
-                src="../assets/navbar-favorite.svg"
+                src="/assets/navbar-favorite.svg"
                 alt="Icon Favorite"
                 width="26"
                 height="26"

@@ -12,17 +12,6 @@ const isSwiped = ref(false);
 const onSlideChange = (swiper) => {
   const slideIndex = swiper.activeIndex;
 
-  console.log(slideIndex);
-
-  {
-    slideIndex > 0 ? (isSwiped.value = true) : (isSwiped.value = false);
-  }
-
-  {
-    isSwiped.value = !slideIndex > 0;
-  }
-  isSwiped.value = slideindex > 0 ? true : false;
-
   if (slideIndex > 0) {
     isSwiped.value = true;
   } else {
@@ -35,7 +24,7 @@ const onResize = () => {
     item.spaceBetween = 50;
     item.slidesPerView = 6;
   } else {
-    item.spaceBetween = -220;
+    item.spaceBetween = -270;
     item.slidesPerView = 1;
   }
 };
@@ -79,7 +68,7 @@ const props = defineProps({
               >
                 <div class="card">
                   <img
-                    :src="`src/assets/products/${product.img}`"
+                    :src="`/assets/products/${product.img}`"
                     class="card-image"
                   />
                   <div class="card-content">
@@ -87,7 +76,7 @@ const props = defineProps({
                     <div class="price-wrapper">
                       <div class="actual-price">
                         <img
-                          src="../assets/actual-price.svg"
+                          src="/assets/actual-price.svg"
                           alt=""
                           class="actual-price-img"
                         />
@@ -97,7 +86,7 @@ const props = defineProps({
                       </div>
                       <div class="discounted-price">
                         <img
-                          src="../assets/discounted-price.svg"
+                          src="/assets/discounted-price.svg"
                           alt=""
                           class="discounted-price-img"
                         />

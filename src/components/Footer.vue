@@ -35,15 +35,15 @@ const displayedCategories = () => {
 <template>
   <footer class="footer">
     <div class="footer-circle">
-      <img src="../assets/footer-circle.svg" alt="" />
+      <img src="/assets/footer-circle.svg" alt="" />
     </div>
     <div class="footer-circle-small">
-      <img src="../assets/footer-circle-small.svg" alt="" width="100" />
+      <img src="/assets/footer-circle-small.svg" alt="" width="100" />
     </div>
     <div class="footer-container">
       <div class="footer-brand">
         <div class="footer-logo">
-          <img src="../assets/bubble-store.svg" alt="" />
+          <img src="/assets/bubble-store.svg" alt="" />
         </div>
         <p class="copyright pt-3 text-white">
           Copyright © 2024 Geniebook. All Rights Reserved
@@ -90,7 +90,7 @@ const displayedCategories = () => {
       </div>
       <div class="d-block d-sm-none mobile-footer-brand">
         <div class="mobile-footer-logo">
-          <img src="../assets/bubble-store.svg" alt="" width="160" />
+          <img src="/assets/bubble-store.svg" alt="" width="160" />
         </div>
         <p class="mobile-copyright pt-1 text-white">
           Copyright © 2024 Geniebook. All Rights Reserved
