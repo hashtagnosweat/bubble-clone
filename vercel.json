@@ -1,5 +1,3 @@
 {
-  "public": {
-    "include": ["src/assets/products/**/*"]
-  }
+  "files": ["src/assets/products/**/*"]
 }
