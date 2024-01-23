@@ -1,0 +1,5 @@
+{
+  "public": {
+    "include": ["src/assets/products/**/*"]
+  }
+}
