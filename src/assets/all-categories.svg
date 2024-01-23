@@ -1,0 +1,12 @@
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="54" height="54" viewBox="0 0 54 54">
+  <g id="Group_8021" data-name="Group 8021" transform="translate(-30.915 -30.915)">
+    <rect id="Rectangle_1420" data-name="Rectangle 1420" width="54" height="54" transform="translate(30.915 30.915)" fill="none"/>
+    <g id="Categories_All" transform="translate(37.728 37.727)">
+      <rect id="Rectangle_1417" data-name="Rectangle 1417" width="17.957" height="17.957" rx="8.979" transform="translate(22.415 0.615)" fill="#efb877"/>
+      <rect id="Rectangle_1418" data-name="Rectangle 1418" width="18" height="18" rx="9" transform="translate(22.187 22.188)" fill="#51a6da"/>
+      <rect id="Rectangle_1419" data-name="Rectangle 1419" width="17.957" height="17.957" rx="8.979" transform="translate(0.615 22.415)" fill="#e89640"/>
+      <circle id="Ellipse_446" data-name="Ellipse 446" cx="9.593" cy="9.593" r="9.593" transform="translate(0)" fill="#51a6da"/>
+      <path id="Path_12358" data-name="Path 12358" d="M376.695,247.337l-.06,0a.969.969,0,0,1-.908-1.027,5.8,5.8,0,0,0-4.081-5.959.969.969,0,1,1,.548-1.859,7.745,7.745,0,0,1,5.467,7.937A.969.969,0,0,1,376.695,247.337Z" transform="translate(-360.542 -236.105)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
