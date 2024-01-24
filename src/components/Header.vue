@@ -318,6 +318,13 @@ ul {
 @media screen and (max-width: 767px) {
   /* Mobile styles */
 
+  .fixed-header {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1000;
+  }
+
   .main-header {
     height: 50px;
     padding: 0 15px;

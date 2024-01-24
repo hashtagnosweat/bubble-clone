@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { ref, reactive, onMounted, onUnmounted, defineProps } from 'vue';
 
 const item = reactive({
-  slidesPerView: 3,
-  spaceBetween: 30,
+  slidesPerView: 2,
+  spaceBetween: 50,
 });
 
 const isSwiped = ref(false);
@@ -266,6 +266,7 @@ const props = defineProps({
   .mobile-category-text {
     color: #252262;
     font: normal normal 900 16px/26px Poppins, serif;
+    margin-left: 5px;
   }
 }
 </style>

@@ -27,7 +27,7 @@ import DataProps from '../../data/constants.js';
 
 <style scoped>
 .home-wrapper {
-  margin: 104px 0px 58px 174px;
+  margin: 120px 0px 50px 174px;
 }
 
 .card-container {
@@ -43,7 +43,7 @@ import DataProps from '../../data/constants.js';
 @media screen and (max-width: 767px) {
   /* Mobile styles */
   .home-wrapper {
-    margin: 60px 0px 58px 0px;
+    margin: 70px 0px 58px 0px;
   }
 
   .card-container {

@@ -123,8 +123,9 @@ const props = defineProps({
   }
 
   .mobile-category-text {
-    font-size: 16px;
-    font-weight: bold;
+    color: #252262;
+    font: normal normal 900 16px/26px Poppins, serif;
+    margin-left: 5px;
   }
 }
 </style>

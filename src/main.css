@@ -6,6 +6,7 @@ body {
   box-sizing: border-box;
   overflow-x: hidden;
   background-color: #f2fafd !important;
+  max-width: 100%;
 }
 
 html {
