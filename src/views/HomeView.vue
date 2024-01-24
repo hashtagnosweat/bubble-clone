@@ -2,8 +2,6 @@
 import CardSlider from '../components/CardSlider.vue';
 import CardCategory from '../components/CardCategory.vue';
 import DataProps from '../../data/constants.js';
-
-console.log(DataProps);
 </script>
 
 <template>

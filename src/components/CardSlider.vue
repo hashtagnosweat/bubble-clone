@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { ref, reactive, onMounted, onUnmounted, defineProps } from 'vue';
 
 const item = reactive({
-  spaceBetween: 0,
-  slidesPerView: 6,
+  slidesPerView: 3,
+  spaceBetween: 30,
 });
 
 const isSwiped = ref(false);
@@ -15,13 +15,6 @@ const onSlideChange = (swiper) => {
   isSwiped.value = slideIndex > 0 ? true : false;
 };
 
-const onResize = () => {
-  const width = window.innerWidth;
-
-  item.spaceBetween = width > 767 ? 50 : width > 375 ? 5 : 50;
-  item.slidesPerView = width > 767 ? 6 : width > 375 ? 2 : 2;
-};
-
 onMounted(() => {
   window.addEventListener('resize', onResize);
   onResize();
@@ -30,6 +23,35 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener('resize', onResize);
 });
+
+const onResize = () => {
+  const width = window.innerWidth;
+
+  if (width > 1024) {
+    item.spaceBetween = 100;
+    item.slidesPerView = 6;
+  } else if (width > 769) {
+    item.spaceBetween = 200;
+    item.slidesPerView = 2;
+  } else if (width > 481) {
+    item.spaceBetween = 120;
+    item.slidesPerView = 3;
+  }
+
+  // if (width > 767) {
+  //   item.spaceBetween = 50;
+  //   item.slidesPerView = 6;
+  // } else if (width > 375 && width < 767) {
+  //   item.spaceBetween = 5;
+  //   item.slidesPerView = 2;
+  // } else {
+  //   item.spaceBetween = 50;
+  //   item.slidesPerView = 2;
+  // }
+
+  // item.spaceBetween = width > 767 ? 50 : width > 375 ? 5 : 50;
+  // item.slidesPerView = width > 767 ? 6 : width > 375 ? 2 : 2;
+};
 
 const props = defineProps({
   category: String,
@@ -57,7 +79,7 @@ const props = defineProps({
               <SwiperSlide
                 v-for="(product, i) in products"
                 :key="i"
-                class="swiper-item"
+                class="swiper-item w-fit"
               >
                 <div class="card">
                   <img
@@ -220,6 +242,10 @@ const props = defineProps({
     padding-top: 35px;
     display: flex;
     align-items: center;
+  }
+
+  .swiper-slide {
+    box-sizing: border-box;
   }
 
   .card {
