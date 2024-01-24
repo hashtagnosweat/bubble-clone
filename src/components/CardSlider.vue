@@ -12,21 +12,14 @@ const isSwiped = ref(false);
 const onSlideChange = (swiper) => {
   const slideIndex = swiper.activeIndex;
 
-  if (slideIndex > 0) {
-    isSwiped.value = true;
-  } else {
-    isSwiped.value = false;
-  }
+  isSwiped.value = slideIndex > 0 ? true : false;
 };
 
 const onResize = () => {
-  if (window.innerWidth > 767) {
-    item.spaceBetween = 50;
-    item.slidesPerView = 6;
-  } else {
-    item.spaceBetween = -270;
-    item.slidesPerView = 1;
-  }
+  const width = window.innerWidth;
+
+  item.spaceBetween = width > 767 ? 50 : width > 375 ? 5 : 50;
+  item.slidesPerView = width > 767 ? 6 : width > 375 ? 2 : 2;
 };
 
 onMounted(() => {
