@@ -4,7 +4,7 @@ import { ref, reactive, onMounted, onUnmounted, defineProps } from 'vue';
 
 const item = reactive({
   slidesPerView: 2,
-  spaceBetween: 50,
+  spaceBetween: -20,
 });
 
 const isSwiped = ref(false);
@@ -28,29 +28,15 @@ const onResize = () => {
   const width = window.innerWidth;
 
   if (width > 1024) {
-    item.spaceBetween = 100;
+    item.spaceBetween = 120;
     item.slidesPerView = 6;
   } else if (width > 769) {
-    item.spaceBetween = 200;
-    item.slidesPerView = 2;
+    item.spaceBetween = 10;
+    item.slidesPerView = 3;
   } else if (width > 481) {
-    item.spaceBetween = 120;
+    item.spaceBetween = 20;
     item.slidesPerView = 3;
   }
-
-  // if (width > 767) {
-  //   item.spaceBetween = 50;
-  //   item.slidesPerView = 6;
-  // } else if (width > 375 && width < 767) {
-  //   item.spaceBetween = 5;
-  //   item.slidesPerView = 2;
-  // } else {
-  //   item.spaceBetween = 50;
-  //   item.slidesPerView = 2;
-  // }
-
-  // item.spaceBetween = width > 767 ? 50 : width > 375 ? 5 : 50;
-  // item.slidesPerView = width > 767 ? 6 : width > 375 ? 2 : 2;
 };
 
 const props = defineProps({
@@ -81,13 +67,13 @@ const props = defineProps({
                 :key="i"
                 class="swiper-item w-fit"
               >
-                <div class="card">
+                <div class="shadow item-card">
                   <img
                     :src="`/assets/products/${product.img}`"
                     class="card-image"
                   />
                   <div class="card-content">
-                    <p class="card-title">{{ product.title }}</p>
+                    <span class="card-title">{{ product.title }}</span>
                     <div class="price-wrapper">
                       <div class="actual-price">
                         <img
@@ -95,9 +81,9 @@ const props = defineProps({
                           alt=""
                           class="actual-price-img"
                         />
-                        <p class="text-actual-price">
+                        <span class="text-actual-price">
                           {{ product.actual_price }}
-                        </p>
+                        </span>
                       </div>
                       <div class="discounted-price">
                         <img
@@ -105,9 +91,9 @@ const props = defineProps({
                           alt=""
                           class="discounted-price-img"
                         />
-                        <p class="text-discounted-price">
+                        <span class="text-discounted-price">
                           {{ product.discounted_price }}
-                        </p>
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -135,9 +121,14 @@ const props = defineProps({
   color: #252262;
   display: flex;
   font: normal normal 900 22px/26px Poppins, serif;
-
   padding: 16px 123px 16px 16px;
   align-items: center;
+}
+.is-swiped-text {
+  position: absolute;
+  color: #252262;
+  font: normal normal 900 22px/26px Poppins, serif;
+  padding-bottom: 20px;
 }
 
 .product-swiper-container {
@@ -146,44 +137,39 @@ const props = defineProps({
   display: flex;
   align-items: center;
 }
-
-.is-swiped-text {
-  position: absolute;
-  color: #252262;
-  font: normal normal 900 22px/26px Poppins, serif;
-  padding-bottom: 20px;
-}
-
-.card {
-  min-width: 180px;
-  max-height: 283px;
-  border-radius: 15px;
+.item-card {
+  width: 179px;
+  height: 283px;
+  border-radius: 16px;
+  padding-bottom: 2px;
   cursor: pointer;
+  background-color: white;
 }
 
 .card-image {
-  border-radius: 15px 15px 0 0;
+  border-radius: 16px 16px 0 0;
   object-fit: cover;
   width: 100%;
   display: block;
 }
 .card-content .card-title {
-  font: normal normal 400 12px/26px Poppins, serif;
+  font: normal normal 400 12px/22px Poppins, serif;
 }
 
 .card-content .text-actual-price,
 .text-discounted-price {
-  font: normal normal bold 13px/26px Poppins, serif;
+  font: normal normal bold 13px/18px Poppins, serif;
 }
 .price-wrapper {
   display: flex;
-  padding-left: 10px;
-  gap: 20px;
+  padding: 0 10px;
+  gap: 10px;
 }
 
 .actual-price,
 .discounted-price {
   display: flex;
+  align-items: center;
 }
 .text-actual-price,
 .text-discounted-price {
@@ -207,8 +193,6 @@ const props = defineProps({
 
 .text-discounted-price {
   color: #2aa7df;
-  padding-bottom: 0;
-  margin: 0px;
 }
 
 .card-title {
@@ -218,8 +202,9 @@ const props = defineProps({
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  padding: 10px 16px 0 16px;
-  max-height: 5.7em;
+  padding: 10px 16px 8px 16px;
+  max-height: 5em;
+  margin-bottom: 5px;
 }
 
 .swiper {
@@ -237,10 +222,10 @@ const props = defineProps({
     display: none;
   }
   .product-swiper-container {
-    width: auto;
-    padding-left: 15px;
-    padding-top: 35px;
     display: flex;
+    width: 100%;
+    padding-left: 16px;
+    margin-top: 1px;
     align-items: center;
   }
 
@@ -248,10 +233,10 @@ const props = defineProps({
     box-sizing: border-box;
   }
 
-  .card {
-    max-width: 180px;
-    max-height: 283px;
-    border-radius: 15px;
+  .item-card {
+    width: 140px;
+    max-height: 213px;
+    border-radius: 16px;
     margin-top: -20px;
     overflow: hidden;
   }
@@ -259,14 +244,45 @@ const props = defineProps({
   .card-image {
     border-radius: 15px 15px 0 0;
     object-fit: cover;
-    width: 180px;
+    width: 140px;
+    height: 140px;
     display: block;
   }
 
   .mobile-category-text {
     color: #252262;
-    font: normal normal 900 16px/26px Poppins, serif;
+    font-weight: 500;
+    font-size: 16px;
     margin-left: 5px;
+  }
+
+  .card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    max-height: 4em;
+  }
+
+  .card-content .card-title {
+    font-size: 10px;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  .text-actual-price,
+  .text-discounted-price {
+    padding-left: 4px;
+    font-weight: bold;
+  }
+
+  .discounted-price-img {
+    height: 16px;
+    width: 16px;
   }
 }
 </style>

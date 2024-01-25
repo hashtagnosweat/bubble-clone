@@ -27,13 +27,13 @@ import DataProps from '../../data/constants.js';
 
 <style scoped>
 .home-wrapper {
-  margin: 120px 0px 50px 174px;
+  margin: 104px 0px 50px 174px;
 }
 
 .card-container {
   display: flex;
   flex-direction: column;
-  gap: 58px;
+  gap: 63px;
 }
 
 @media screen and (max-width: 1023px) {
@@ -43,7 +43,7 @@ import DataProps from '../../data/constants.js';
 @media screen and (max-width: 767px) {
   /* Mobile styles */
   .home-wrapper {
-    margin: 70px 0px 58px 0px;
+    margin: 55px 0px 58px 0px;
   }
 
   .card-container {

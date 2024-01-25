@@ -1,4 +1,5 @@
 <script setup>
+import { Swiper, SwiperSlide } from 'swiper/vue';
 import { reactive, onMounted, onUnmounted, defineProps } from 'vue';
 
 const item = reactive({
@@ -27,6 +28,14 @@ const props = defineProps({
   category: String,
   products: Array,
 });
+
+const chunkSize = 2;
+const rows = [];
+for (let i = 0; i < props.products.length; i += chunkSize) {
+  rows.push(props.products.slice(i, i + chunkSize));
+}
+
+console.log(rows);
 </script>
 
 <template>
@@ -40,12 +49,36 @@ const props = defineProps({
         <div class="right-side">
           <div class="grid-container">
             <div v-for="product in products" class="grid-item">
-              <div class="image-wrapper">
+              <div class="mb-2 image-wrapper">
                 <img :src="`/assets/${product.img}`" class="thumbnail-image" />
               </div>
-              <p class="thumbnail-name">{{ product.name }}</p>
+              <span class="thumbnail-name">{{ product.name }}</span>
             </div>
           </div>
+        </div>
+
+        <div class="d-block d-sm-none mobile-swiper-container">
+          <Swiper :slides-per-view="3" :space-between="0">
+            <SwiperSlide v-for="(row, index) in rows" :key="index">
+              <div class="mobile-category">
+                <div class="mobile-grid-container">
+                  <div
+                    v-for="product in row"
+                    :key="idx"
+                    class="mobile-grid-item"
+                  >
+                    <div class="mb-2 image-wrapper">
+                      <img
+                        :src="`/assets/${product.img}`"
+                        class="thumbnail-image"
+                      />
+                    </div>
+                    <span class="thumbnail-name">{{ product.name }}</span>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </div>
     </div>
@@ -94,7 +127,7 @@ const props = defineProps({
   background-color: white;
 }
 
-.grid-item img {
+.thumbnail-image {
   width: 80px;
   height: 80px;
 }
@@ -103,8 +136,10 @@ const props = defineProps({
 .thumbnail-name {
   cursor: pointer;
 }
-.grid-item p {
-  margin: 10px 0px 0;
+.thumbnail-name {
+  margin: 10px 0;
+  color: #262262;
+  font-weight: 500;
 }
 
 @media screen and (max-width: 1023px) {
@@ -117,15 +152,51 @@ const props = defineProps({
     display: none;
   }
   .right-side {
-    display: flex;
+    display: none;
     padding: 20px 8px;
     align-items: center;
   }
 
   .mobile-category-text {
     color: #252262;
-    font: normal normal 900 16px/26px Poppins, serif;
+    font-weight: 500;
+    font-size: 16px;
     margin-left: 5px;
+  }
+
+  .swiper {
+    width: 100%;
+    overflow: visible !important;
+  }
+
+  .image-wrapper {
+    height: 80px;
+    width: 80px;
+    margin: 0 15px;
+  }
+
+  .mobile-grid-container {
+    padding-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+  }
+
+  .mobile-grid-item {
+    text-align: center;
+    height: 138px;
+  }
+
+  .mobile-grid-item img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .thumbnail-name {
+    margin: 10px 0px;
+    font-size: 14px;
+    color: #262262;
+    font-weight: bold;
   }
 }
 </style>
